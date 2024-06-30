@@ -1,0 +1,156 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('Wordle image.jpg'); /* Imagen de fondo de sopa de letras */
+  background-size: cover;
+  background-position: center;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+h1 {
+  font-size: 48px;
+  color: #1e90ff; /* Color azul */
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para efecto 3D */
+  animation: colorChange 3s infinite;
+  margin-bottom: 20px;
+}
+@keyframes colorChange {
+  0% { color: #1e90ff; }
+  25% { color: #00bfff; }
+  50% { color: #87ceeb; }
+  75% { color: #6a5acd; }
+  100% { color: #1e90ff; }
+}
+#guess-input {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 18px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#guess-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #0CBABA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#guess-button:hover {
+  background-color: #0a9a92;
+}
+#guess-button:active {
+  transform: scale(0.95);
+}
+.letter {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 3px;
+  min-width: 40px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: popIn 0.3s ease-out;
+}
+.row {
+  margin-bottom: 10px;
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
+}
+.input-area {
+  margin: 30px;
+  text-align: center;
+}
+#timer-container {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  display: none;
+}
+.hourglass-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.hourglass {
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(to bottom, #333 50%, transparent 50%);
+  position: relative;
+  animation: rotate 5s infinite;
+}
+.hourglass:before,
+.hourglass:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: #333;
+  transform: translateX(-50%);
+}
+.hourglass:before {
+  top: 0;
+  border-radius: 30px 30px 0 0;
+}
+.hourglass:after {
+  bottom: 0;
+  border-radius: 0 0 30px 30px;
+}
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(180deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@keyframes popIn {
+  from {
+      transform: scale(0.5);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
